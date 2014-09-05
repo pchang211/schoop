@@ -1,6 +1,10 @@
 var StudentsCtrl = angular.module('StudentsCtrl', ['StudentsService']).controller('studentsController', function($scope, studentsRepository) {
 	$scope.message = "This is the students page";
 
+	$scope.student = {};
+	$scope.student.name = "Name";
+	$scope.student.age = 0;
+
 	$scope.getStudents = function() {
 
 		studentsRepository.get().success(function(data) {
@@ -12,8 +16,8 @@ var StudentsCtrl = angular.module('StudentsCtrl', ['StudentsService']).controlle
 
 	$scope.createStudent = function() {
 
-		var student = {'name': 'new-user', 'age': 69};
-		studentsRepository.create(student);
+		console.log($scope.student);
+		studentsRepository.create($scope.student);
 
 	};
 

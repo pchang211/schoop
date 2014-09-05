@@ -4,8 +4,8 @@
 		<!-- {{message}} -->
 
 		<form novalidate class="simple-form">
-			Name: <input type="text" />
-			Age: <input type="text" />
+			Name: <input type="text" ng-model="student.name"/>
+			Age: <input type="text" ng-model="student.age"/>
 			<button ng-click="createStudent()" type="button" class="btn btn-default">Submit</button>
 			<button ng-click="getStudents()" type="button" class="btn btn-default">Update Table</button>
 		</form>

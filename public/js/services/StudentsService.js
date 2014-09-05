@@ -6,9 +6,7 @@ angular.module('StudentsService', []).factory('studentsRepository', function($ht
 		},
 
 		create : function(student) {
-			console.log('students service:');
-			console.log(student);
-			// return $http({method: 'POST', url: '/api/students'});
+			// console.log(student);
 			return $http({method: 'POST', url: '/api/students', data: student});
 		}
 	}
