@@ -23,6 +23,7 @@
 					<tr ng-repeat="student in students">
 						<td>{{student.name}}</td>
 						<td>{{student.age}}</td>
+						<td><button ng-click="deleteStudent(student._id)" type="button" class="btn btn-danger">Delete</button></td>
 					</tr>
 				</tbody>
 			</table>

@@ -21,6 +21,12 @@ var StudentsCtrl = angular.module('StudentsCtrl', ['StudentsService']).controlle
 
 	};
 
+	$scope.deleteStudent = function(id) {
+
+		studentsRepository.delete(id);
+
+	}
+
 	$scope.students = $scope.getStudents();
 
 });

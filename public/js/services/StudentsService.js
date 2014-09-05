@@ -6,8 +6,13 @@ angular.module('StudentsService', []).factory('studentsRepository', function($ht
 		},
 
 		create : function(student) {
-			// console.log(student);
+			console.log(student);
 			return $http({method: 'POST', url: '/api/students', data: student});
+		},
+
+		delete : function(id) {
+			console.log(id);
+			return $http({method: 'DELETE', url: '/api/students/' + id});
 		}
 	}
 });
