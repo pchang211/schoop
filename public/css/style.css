@@ -1,0 +1,33 @@
+body {
+	padding: 30px;
+}
+
+input {
+	margin: 5px 5px;
+}
+
+table {
+
+}
+
+table td {
+	text-align: left;
+}
+
+div {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form {
+	padding-bottom: 50px;
+}
+
+#studentsWrapper{
+	width: 40%;
+}
+
+#wrapper {
+	padding-left:400px;
+	position: relative;
+}

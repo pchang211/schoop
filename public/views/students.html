@@ -1,14 +1,31 @@
 <div class="jumbotron text-center">
 	<h1>Students Page</h1>
 
-		{{message}}
-
-		<button ng-click="getStudents()">Find</button>
+		<!-- {{message}} -->
 
 		<form novalidate class="simple-form">
-			Name: <input type="text" /><br />
-			Age: <input type="text" /><br />
-			<button>SUBMIT</button>
+			Name: <input type="text" />
+			Age: <input type="text" />
+			<button type="button" class="btn btn-default">Submit</button>
+			<button ng-click="getStudents()" type="button" class="btn btn-default">Update Table</button>
 		</form>
+
+
+		<div id="studentsWrapper">
+			<table class="table table-hover table-condensed">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="student in students">
+						<td>{{student.name}}</td>
+						<td>{{student.age}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 </div>
