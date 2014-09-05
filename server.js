@@ -10,9 +10,6 @@ var methodOverride = require ('method-override');
 var dbConfig = require('./config/db-config');
 var port = process.env.PORT || 8080;
 var db = mongo.db(dbConfig.uri);
-// db.collection('students').find().toArray(function(err, items) {
-// 	console.log(items);
-// });
 
 // how is bodyParser used? what is it used for?
 app.use(bodyParser.json());

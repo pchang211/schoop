@@ -1,7 +1,15 @@
 angular.module('StudentsService', []).factory('studentsRepository', function($http) {
 	return {
 		get : function() {
-			return $http.get('/api/students');
+			return $http({method: 'GET', url: '/api/students'});
+			// return $http.get('/api/students');
+		},
+
+		create : function(student) {
+			console.log('students service:');
+			console.log(student);
+			// return $http({method: 'POST', url: '/api/students'});
+			return $http({method: 'POST', url: '/api/students', data: student});
 		}
 	}
 });
