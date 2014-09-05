@@ -1,0 +1,1 @@
+angular.module('ccgcApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'StudentsCtrl']);
