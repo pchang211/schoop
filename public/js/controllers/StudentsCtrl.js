@@ -1,29 +1,37 @@
 var StudentsCtrl = angular.module('StudentsCtrl', ['StudentsService']).controller('studentsController', function($scope, studentsRepository) {
 	$scope.message = "This is the students page";
 
-	$scope.student = {};
-	$scope.student.name = "Name";
-	$scope.student.age = 0;
+	$scope.newStudent = {};
+	// $scope.newStudent.name = "Name";
+	// $scope.newStudent.age = 0;
 
 	$scope.getStudents = function() {
 
 		studentsRepository.get().success(function(data) {
 			$scope.students = data;
-			console.log($scope.students);
 		});
 
 	};
 
 	$scope.createStudent = function() {
 
-		console.log($scope.student);
-		studentsRepository.create($scope.student);
+		studentsRepository.create($scope.newStudent).success(function(response) {
+			$scope.newStudent = {};
+		});
+		$scope.updateStudentList();
 
 	};
 
 	$scope.deleteStudent = function(id) {
 
 		studentsRepository.delete(id);
+		$scope.updateStudentList();
+
+	}
+
+	$scope.updateStudentList = function() {
+
+		$scope.students = $scope.getStudents();
 
 	}
 
