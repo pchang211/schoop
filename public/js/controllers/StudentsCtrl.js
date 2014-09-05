@@ -1,7 +1,11 @@
-angular.module('StudentsCtrl', []).controller('studentsController', function($scope) {
+var StudentsCtrl = angular.module('StudentsCtrl', ['StudentsService']).controller('studentsController', function($scope, studentsRepository) {
 	$scope.message = "This is the students page";
 
 	$scope.getStudents = function() {
-		console.log('getStudents');
+
+		studentsRepository.get().success(function(students) {
+			console.log(students);
+		});
+
 	};
 });
