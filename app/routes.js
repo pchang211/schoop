@@ -1,9 +1,10 @@
 module.exports = function(router, db) {
 
 	router.get('/students', function(req, res) {
-		console.log('GET students');
+		console.log('GET students query: ');
+		console.log(req.query);
 		
-		db.collection('students').find().toArray(function(err, items) {
+		db.collection('students').find(req.query).toArray(function(err, items) {
 			res.json(items);
 		});
 
@@ -12,7 +13,8 @@ module.exports = function(router, db) {
 	router.post('/students', function(req, res) {
 
 		var student = req.body;
-		console.log('POST student');
+		console.log('POST student: ');
+		console.log(student);
 
 		db.collection('students').insert(student, function(err, result) {
 			res.send(
@@ -33,5 +35,19 @@ module.exports = function(router, db) {
 		});
 
 	});
+
+//=======================================================================================================================
+
+	router.get('/years', function(req, res) {
+
+		console.log('GET years');
+
+		db.collection('students').distinct('year', function(err, result) {
+			res.send(
+				(err === null) ? result : {msg: err}
+			);
+		});
+
+	})
 
 }

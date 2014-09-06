@@ -1,18 +1,29 @@
-var StudentsCtrl = angular.module('StudentsCtrl', ['StudentsService']).controller('studentsController', function($scope, studentsRepository) {
+var StudentsCtrl = angular.module('StudentsCtrl', ['StudentsService', 'FilterService']);
+
+StudentsCtrl.controller('studentsController', function($scope, studentsRepository, filterRepository) {
 	$scope.message = "This is the students page";
 
 	$scope.newStudent = {};
+	$scope.query = {};
 	// $scope.newStudent.name = "Name";
 	// $scope.newStudent.age = 0;
 
-	$scope.getStudents = function() {
+	$scope.getYearFilter = function() {
+		filterRepository.getYearFilter().success(function(data) {
+			$scope.years = data;
+		});
+	}
 
-		studentsRepository.get().success(function(data) {
+	$scope.updateStudentList = function() {
+		studentsRepository.get($scope.query).success(function(data) {
 			$scope.students = data;
 		});
+	}
 
-	};
-
+	$scope.updateQuery = function(updatedQuery) {
+		$scope.query = updatedQuery;
+	}
+	
 	$scope.createStudent = function() {
 
 		studentsRepository.create($scope.newStudent).success(function(response) {
@@ -29,12 +40,10 @@ var StudentsCtrl = angular.module('StudentsCtrl', ['StudentsService']).controlle
 
 	}
 
-	$scope.updateStudentList = function() {
 
-		$scope.students = $scope.getStudents();
+	// just for now
+	// $scope.query = {};
 
-	}
 
-	$scope.students = $scope.getStudents();
 
 });

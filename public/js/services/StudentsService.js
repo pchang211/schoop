@@ -1,7 +1,7 @@
 angular.module('StudentsService', []).factory('studentsRepository', function($http) {
 	return {
-		get : function() {
-			return $http({method: 'GET', url: '/api/students'});
+		get : function(query) {
+			return $http({method: 'GET', url: '/api/students', params: query});
 			// return $http.get('/api/students');
 		},
 
@@ -11,7 +11,7 @@ angular.module('StudentsService', []).factory('studentsRepository', function($ht
 		},
 
 		delete : function(id) {
-			console.log(id);
+			// console.log(id);
 			return $http({method: 'DELETE', url: '/api/students/' + id});
 		}
 	}

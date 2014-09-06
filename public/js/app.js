@@ -1,1 +1,1 @@
-angular.module('ccgcApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'StudentsCtrl', 'StudentsService']);
+angular.module('ccgcApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'StudentsCtrl', 'StudentsService', 'FilterService']);
