@@ -24,6 +24,16 @@ module.exports = function(router, db) {
 
 	});
 
+	router.get('/students/:id', function(req, res) {
+
+		console.log('GET ' + req.params.id);
+
+		db.collection('students').findById(req.params.id, function(err, result) {
+			res.json(result);
+		});
+
+	});
+
 	router.delete('/students/:id', function(req, res) {
 
 		console.log('DELETE ' + req.params.id);
@@ -35,6 +45,7 @@ module.exports = function(router, db) {
 		});
 
 	});
+
 
 //=======================================================================================================================
 

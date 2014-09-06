@@ -5,6 +5,10 @@ angular.module('StudentsService', []).factory('studentsRepository', function($ht
 			// return $http.get('/api/students');
 		},
 
+		getStudent : function(id) {
+			return $http({method: 'GET', url: '/api/students/' + id});
+		},
+
 		create : function(student) {
 			// console.log(student);
 			return $http({method: 'POST', url: '/api/students', data: student});
